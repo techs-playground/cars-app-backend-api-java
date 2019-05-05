@@ -1,0 +1,21 @@
+version: '3.7'
+volumes:
+  db-data:
+services:
+  db:
+    container_name: ebook-spring-boot-2-react__mariadb
+    image: mariadb
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: cars
+      MYSQL_USER: cars_user
+      MYSQL_PASSWORD: cars_pw
+  adminer:
+    container_name: ebook-spring-boot-2-react__adminer
+    image: adminer
+    ports:
+      - 8081:8080
